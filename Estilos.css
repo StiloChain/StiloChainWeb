@@ -1,0 +1,70 @@
+body {
+  font-family: 'Arial', sans-serif; /* Cambio de fuente a Arial */
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(135deg, #fce4ec, #f3e5f5);
+  color: #ec407a; /* Color de la parte "Stilo Chain" */
+}
+
+.container {
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+
+.bounce {
+  animation: bounceText 10s infinite alternate;
+}
+
+@keyframes bounceText {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  display: inline-block;
+  padding: 15px 30px;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #e91e63;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; /* Ajuste de transición */
+}
+
+.btn:hover {
+  background-color: #d81b60; /* Color más oscuro al pasar el cursor */
+  color: #fff; /* Ajuste de color del texto al pasar el cursor */
+}
+
+.btn i {
+  margin-right: 10px; /* Espacio entre el icono y el texto */
+}
+
+.btn:hover {
+  background-color: #d81b60; /* Color más oscuro al pasar el cursor */
+  color: #fff; /* Ajuste de color del texto al pasar el cursor */
+  transform: scale(1.1); /* Escala del botón al pasar el cursor */
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Ajuste de transición */
+}

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Listar y Actualizar - Empleado</title>
+  <link rel="stylesheet" href="../../Administrador/CSS/read.css" />
+  <!-- CORREGIR ESTA LINEA NO PUEDE HABER UN CSS POR 2 O MÁS HTML -->
+</head>
+
+
+<style>
+  .currentPage {
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 75%;
+    font-weight: bold;
+    font-size: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 17px;
+  }
+
+  .pagination {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .ima {
+    width: 200px;
+    /* Ancho de la imagen */
+    height: 150px;
+    /* Alto de la imagen */
+  }
+
+  .pagination button {
+    background-color: #ec407a;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    max-width: 200px;
+    margin: 2px;
+  }
+
+  .pagination button:hover {
+    background-color: #d81b60;
+  }
+
+  #table {
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 100%;
+  }
+
+
+  #table th,
+  #table td {
+    padding: 10px;
+    text-align: center;
+  }
+
+  #table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  #table tbody tr:hover {
+    background-color: #d81b60;
+    color: white;
+  }
+
+  .titulo {
+    font-size: 20px;
+  }
+
+  .password-container {
+    position: relative;
+  }
+
+  .password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 65%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+</style>
+
+<body>
+  <div class="container">
+    <div class="navigation">
+      <ul>
+        <li>
+          <a href="">
+            <span class="icon">
+              <i class="fa-solid fa-scissors"></i>
+            </span>
+            <span class="title">Stilo Chain</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="../../Administrador/HTML/Inicio.html">
+            <span class="icon">
+              <i class="fa-solid fa-house"></i>
+            </span>
+            <span class="title">Inicio</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="../../Servicios/HTML/ListarYActualizar.html">
+            <span class="icon">
+              <i class="fa-solid fa-users"></i>
+            </span>
+            <span class="title">Servicios</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="../../Empleados/HTML/Listar.html">
+            <span class="icon">
+              <i class="fa-solid fa-chess-queen"></i>
+            </span>
+            <span class="title">Empleados</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="../../Administrador/HTML/IniciarSesion.html" target="_blank">
+            <span class="icon">
+              <i class="fa-solid fa-right-to-bracket"></i>
+            </span>
+            <span class="title" onclick="cerrarVentana()">Cerrar sesión</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- ========================= Main ==================== -->
+    <div class="main">
+      <div class="topbar">
+        <div class="toggle">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </div>
+
+      <!-- ================ Order Details List ================= -->
+
+      <div class="details">
+        <div class="recentOrders">
+          <div class="cardHeader">
+            <h2>Empleados</h2>
+            <a href="Registrar.html" class="btn">Nuevo</a>
+          </div>
+
+          <table id="table">
+            <thead>
+              <tr>
+                <td class="titulo">Documento</td>
+                <td class="titulo">Nombre/s</td>
+                <td class="titulo">Apellido/s</td>
+                <td class="titulo">Servicio</td>
+                <td class="titulo">Estado</td>
+              </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+          </table>
+          <div id="pagination" class="pagination">
+            <button id="nextPage"><i class="fa-solid fa-forward"> Siguiente</i></button>
+            <span id="currentPage" class="currentPage">1</span>
+            <button id="prevPage"><i class="fa-solid fa-backward"> Anterior</i></button>
+          </div>
+
+        </div>
+
+        <div class="recentCustomers">
+          <h2>Actualizar empleado</h2>
+          <div class="formu">
+            <div class="form-group">
+              <label for="documento">
+                <i class="fas fa-id-card"></i> Documento
+              </label>
+              <input type="number" placeholder="Documento" id="documento" required readonly>
+            </div>
+
+            <div class="form-group">
+              <label for="nombres">
+                <i class="fa fa-user"></i> Nombre/s:
+              </label>
+              <input type="text" placeholder="Nombre" id="nombres" required>
+            </div>
+
+            <div class="form-group">
+              <label for="apellidos">
+                <i class="fa fa-user"></i> Apellido/s:
+              </label>
+              <input type="text" placeholder="Apellido" id="apellidos" required>
+            </div>
+
+            <div class="form-group">
+              <label for="telefono">
+                <i class="fa fa-phone"></i> Teléfono
+              </label>
+              <input type="number" placeholder="Teléfono" id="telefono" required>
+            </div>
+
+            <div class="form-group">
+              <label for="correo">
+                <i class="fa fa-envelope"></i> Correo
+              </label>
+              <input type="text" placeholder="Correo" id="correo" required>
+            </div>
+
+            <div class="form-group password-container">
+              <label for="contraseña">
+                <i class="fa fa-lock"></i> Contraseña
+              </label>
+              <input type="password" placeholder="Contraseña" id="contraseña" required>
+              <i class="fa fa-eye password-toggle" id="togglePassword"></i>
+            </div>
+
+            <div class="form-group">
+              <label for="imagen"><i class="far fa-image"></i> Imagen (.png, .jpg, .jpeg):</label>
+              <input type="file" id="imagen" name="imagen" accept=".png, .jpg, .jpeg" required />
+            </div>
+
+            <img id="imagen1" src="" class="ima" alt="Imagen del empleado">
+
+            <div>
+              <label for="rol">
+                <i class="fa-regular fa-address-book"></i> Rol
+              </label>
+              <select class="miSelect" name="" id="rol">
+                <option value="0" selected>Seleccionar...</option>
+                <option value="1">
+                  <i class="fa fa-cog"></i> Admin
+                </option>
+                <option value="2">
+                  <i class="fa fa-user"></i> Empleado
+                </option>
+              </select>
+            </div>
+
+            <div>
+              <label for="ocupaciones">
+                <i class="fa fa-briefcase"></i> Servicio
+              </label>
+              <select class="miSelect" name="" id="ocupaciones">
+                <option value="0" selected>Seleccionar...</option>
+              </select>
+            </div>
+
+            <button id="update">Actualizar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= New Customers ================ -->
+    </div>
+  </div>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
+  <script>
+    function cerrarVentana() {
+      setTimeout(function () {
+        window.open('about:blank', '_self').close();
+      }, 2);
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://kit.fontawesome.com/8d83ab9db3.js" crossorigin="anonymous"></script>
+  <script src="../JS/Estados.js"></script>
+  <script src="../../Servicios/JS/Listar.js"></script>
+  <script src="../../Administrador/JS/Navigation.js"></script>
+  <script src="../JS/Listar.js"></script>
+  <script src="../JS/Actualizar.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script>
+    const passwordInput = document.getElementById("contraseña");
+    const togglePasswordButton = document.getElementById("togglePassword");
+
+    togglePasswordButton.addEventListener("click", () => {
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        togglePasswordButton.classList.remove("fa-eye");
+        togglePasswordButton.classList.add("fa-eye-slash");
+      } else {
+        passwordInput.type = "password";
+        togglePasswordButton.classList.remove("fa-eye-slash");
+        togglePasswordButton.classList.add("fa-eye");
+      }
+    });
+  </script>
+
+</body>
+
+</html>

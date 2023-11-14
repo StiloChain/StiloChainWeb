@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/final.css">
+    <title>Confirmación de Reserva</title>
+</head>
+
+<body>
+    <div class="mensaje">
+        <h1 class="mensaje2">Gracias por utilizar Stilo Chain WEB</h1>
+        <p>Su reserva se ha realizado</p>
+    </div>
+
+    <div class="datos">
+        <p>Hora: <span id="horaText"></span></p>
+        <p>Fecha: <span id="fecha"></span></p>
+    </div>
+
+
+    <a class="btn epa cliente" href="../../Servicios/HTML/ListarZZZ.html" role="button">Realizar otra reserva</a>
+
+    <script>
+        // Recupera los datos almacenados de localStorage
+        const horaText = localStorage.getItem("hora");
+        const fecha = localStorage.getItem("fecha");
+
+        // Actualiza el contenido de los elementos con los datos recuperados
+        document.getElementById('horaText').innerText = horaText;
+        document.getElementById('fecha').innerText = fecha;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #fce4ec, #f3e5f5);
+        color: #ec407a;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    .login-container {
+        max-width: 400px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+
+    .login-container h1 {
+        text-align: center;
+        color: #ec407a;
+        margin-bottom: 20px;
+    }
+
+
+    .input-group {
+        margin-bottom: 20px;
+    }
+
+
+    .form-group label {
+        display: block;
+        color: #ec407a;
+        margin-bottom: 5px;
+    }
+
+    .input-group i {
+        margin-right: 10px;
+        color: #888;
+    }
+
+    .input-group input {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    button {
+        width: 100%;
+        padding: 15px 0;
+        border: none;
+        border-radius: 10px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 20px;
+        cursor: pointer;
+        color: #fff;
+        background-color: #e91e63;
+        transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+    button:hover {
+        background-color: #d81b60;
+        transform: scale(1.05);
+    }
+
+    .back-button {
+        width: 100%;
+        /* O el porcentaje que prefieras para ambos botones */
+        margin-top: 10px;
+        background-color: #e91e63;
+        /* Mismo color que el botón de inicio de sesión */
+        color: #fff;
+        border: none;
+        /* Quita el borde del botón */
+        border-radius: 10px;
+        /* Aplica el mismo radio de borde */
+        padding: 15px 0;
+        /* Aplica el mismo padding */
+        font-size: 20px;
+        /* Aplica el mismo tamaño de fuente */
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+    .back-button:hover {
+        background-color: #d81b60;
+    }
+
+    .back-button i {
+        margin-right: 10px;
+        /* Espacio entre el ícono y el texto del botón */
+    }
+
+    .back-button:focus {
+        outline: none;
+        /* Quita el contorno que aparece al hacer clic en el botón */
+    }

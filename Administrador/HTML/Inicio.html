@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inicio</title>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="../CSS/read.css" />
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th,
+    td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #ec407a;
+      color: white;
+    }
+
+    .container2 {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      width: 80%;
+      max-width: 800px;
+      margin-top: 50%;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ec407a;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      text-align: center;
+      position: relative;
+    }
+
+    .form-group label {
+      display: block;
+      color: #ec407a;
+      margin-bottom: 5px;
+    }
+
+    .form-group input {
+      width: 300px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="navigation">
+      <ul>
+        <li>
+          <a href="">
+            <span class="icon">
+              <i class="fa-solid fa-scissors"></i>
+            </span>
+            <span class="title">Stilo Chain</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="Inicio.html">
+            <span class="icon">
+              <i class="fa-solid fa-house"></i>
+            </span>
+            <span class="title">Inicio</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="../../Servicios/HTML/ListarYActualizar.html">
+            <span class="icon">
+              <i class="fa-solid fa-users"></i>
+            </span>
+            <span class="title">Servicios</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="../../Empleados/HTML/Listar.html">
+            <span class="icon">
+              <i class="fa-solid fa-chess-queen"></i>
+            </span>
+            <span class="title">Empleados</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="../../Administrador/HTML/IniciarSesion.html" target="_blank">
+            <span class="icon">
+              <i class="fa-solid fa-right-to-bracket"></i>
+            </span>
+            <span class="title" onclick="cerrarVentana()">Cerrar sesión</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- ========================= Main ==================== -->
+    <div class="main">
+      <div class="topbar">
+        <div class="toggle">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+        <div class="container2">
+          <h1><i class="fas fa-calendar-alt"></i> Citas del Empleado</h1>
+          <div class="form-group">
+            <label for="fecha">
+              <i class="fas fa-calendar-alt"></i> Buscar por Fecha:
+              <i class="fas fa-search icon"></i>
+            </label>
+            <input type="text" id="fecha" placeholder="Ingrese la fecha (aaaa/mm/dd)">
+          </div>
+          <div class="form-group">
+            <label for="documento">
+              <i class="fas fa-id-card"></i> Buscar por Documento de el Cliente:
+              <i class="fas fa-search icon"></i>
+            </label>
+            <input type="text" id="documentoCliente" placeholder="Ingrese el número de documento">
+          </div>
+          <div class="form-group">
+            <label for="documento">
+              <i class="fas fa-id-card"></i> Buscar por Documento de el Empleado:
+              <i class="fas fa-search icon"></i>
+            </label>
+            <input type="text" id="documentoEmpleado" placeholder="Ingrese el número de documento">
+          </div>
+          <table id="citasTable">
+            <thead>
+              <tr>
+                <th>Código de Cita</th>
+                <th>Documento Cliente</th>
+                <th>Hora Cita</th>
+                <th>Fecha Cita</th>
+                <th>Documento Empleado</th>
+              </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
+
+
+        <!-- ======================= Cards ================== -->
+
+        <div></div>
+
+        <!-- ================ Order Details List ================= -->
+
+        <!-- ================= New Customers ================ -->
+
+        <div></div>
+      </div>
+    </div>
+    <script>
+      function cerrarVentana() {
+        setTimeout(function () {
+          window.open('about:blank', '_self').close();
+        }, 2);
+      }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="../../Administrador/JS/citas.js"></script>
+    <script src="https://kit.fontawesome.com/8d83ab9db3.js" crossorigin="anonymous"></script>
+    <script src="../JS/Navigation.js"></script>
+</body>
+
+</html>

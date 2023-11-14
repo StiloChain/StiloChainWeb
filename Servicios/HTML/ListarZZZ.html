@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicios</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #fce4ec, #f3e5f5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .TIT {
+      color: #ec407a;
+      /* Color de título estilo salón de belleza */
+    }
+
+    #servicios-container {
+      display: flex;
+      margin-top: 100px;
+      flex-wrap: wrap;
+      justify-content: center;
+      /* Centrar los servicios */
+    }
+
+    .cuadro {
+      border: 2px solid #ec407a;
+      /* Borde estilo salón de belleza */
+      margin: 10px;
+      padding: 20px;
+      width: 200px;
+      border-radius: 30px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      text-align: center;
+      /* Centrar el texto */
+      transition: transform 0.3s;
+      /* Agregamos transición para efecto hover */
+    }
+
+    .cuadro:hover {
+      transform: translateY(-5px);
+    }
+
+    .left {
+      width: 100%;
+      /* Ancho máximo para el contenedor de la imagen */
+      height: 200px;
+      /* Altura máxima para el contenedor de la imagen */
+      overflow: hidden;
+      /* Para recortar cualquier parte que exceda las dimensiones especificadas */
+    }
+
+    .left .img-container {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 15px;
+      /* Borde redondeado */
+    }
+
+    .left img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* Ajusta la imagen para cubrir el contenedor */
+    }
+
+    .right {
+      margin-top: 10px;
+    }
+
+    .right h2 {
+      margin: 10px 0;
+      color: #ec407a;
+      /* Color del nombre del servicio */
+    }
+
+    .right button {
+      background-color: #ec407a;
+      /* Color del botón estilo salón de belleza */
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-size: 14px;
+      border-radius: 15px;
+      /* Borde redondeado */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-top: 10px;
+    }
+
+    .right button:hover {
+      background-color: #ff69b4;
+      /* Color al pasar el mouse */
+    }
+
+    .icon {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .icon a {
+      margin: 0 10px;
+      color: #ff5c5c;
+      font-size: 24px;
+      text-decoration: none;
+    }
+
+    .icon a:hover {
+      color: #ec407a;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 30px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: #fff;
+      background-color: #e91e63;
+      transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+
+    .btn:hover {
+      background-color: #d81b60;
+      color: #fff;
+    }
+
+    .btn i {
+      margin-right: 10px;
+    }
+
+    .btn:hover {
+      background-color: #d81b60;
+      color: #fff;
+      transform: scale(1.1);
+      transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="TIT">Servicios</h1>
+
+  <main>
+    <div class="padre" id="servicios-container">
+      <!-- Aquí se cargarán los servicios dinámicamente -->
+    </div>
+    <div class="icon">
+      <a href="https://web.facebook.com/?_rdc=1&_rdr"><i class="fa-brands fa-facebook"></i></a>
+      <a href="https://www.instagram.com/stilochain/"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+  </main>
+
+  <a href="../../Horarios/HTML/horario.html"></a>
+
+  <a class="btn epa cliente" href="../../Clientes/HTML/SesionUsaruio.html" role="button">Regresar</a>
+
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const serviciosContainer = document.getElementById('servicios-container');
+
+  fetch('http://localhost:8084/servicio')
+    .then(response => response.json())
+    .then(data => {
+      data.forEach(servicio => {
+        const cuadro = document.createElement('div');
+        cuadro.classList.add('cuadro', 'servicio');
+
+        const left = document.createElement('div');
+        left.classList.add('left');
+
+        const imgContainer = document.createElement('div');
+        imgContainer.classList.add('img-container');
+
+        const img = document.createElement('img');
+        const imageUrl = "http://localhost:8084/servicio/obtener/" + servicio.id;
+        img.src = imageUrl;
+        img.alt = servicio.nombre;
+
+        imgContainer.appendChild(img);
+        left.appendChild(imgContainer);
+
+        const right = document.createElement('div');
+        right.classList.add('right');
+
+        const h2 = document.createElement('h2');
+        h2.id = servicio.id;
+        h2.textContent = servicio.nombre;
+        right.appendChild(h2);
+
+        const h3 = document.createElement('h3');
+        h3.id = servicio.id;
+        h3.textContent = "Precio: " + servicio.precio;
+        right.appendChild(h3);
+
+        const button = document.createElement('button');
+        button.classList.add('btn', 'btn-primary');
+        button.textContent = 'Reservar';
+        button.id = "btnReservar";
+        right.appendChild(button);
+
+        cuadro.appendChild(left);
+        cuadro.appendChild(right);
+        serviciosContainer.appendChild(cuadro);
+
+        // Agregar un event listener al botón "Reservar"
+        button.addEventListener('click', () => {
+          const h2Text = h2.textContent;
+          const h2Id = h2.id;
+
+          // Almacenar el ID en localStorage
+          localStorage.setItem('h2Id', h2Id);
+
+          // Construir la URL para redirigir a horario.html con el texto codificado en parámetros
+          const url = `../../Horarios/HTML/ListarZZZ.html?h2Text=${encodeURIComponent(h2Text)}`;
+
+          // Redirigir a la URL
+          window.location.href = url;
+        });
+      });
+    })
+    .catch(error => console.error('Error:', error));
+});
+
+
+  </script>
+</body>
+
+</html>

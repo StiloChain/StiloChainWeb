@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #fce4ec, #f3e5f5);
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+}
+
+.imagen{
+  width: 200px;
+  height: 200px;
+  border-radius: 10%;
+}
+
+.TIT2 {
+    text-align: center;
+    margin-top: 20px;
+    color: #ec407a;
+    /* Color de título estilo salón de belleza */
+}
+
+.TIT {
+    text-align: center;
+    margin: 5px;
+    color: #ec407a;
+    /* Color de título estilo salón de belleza */
+}
+
+.container__services {
+    width: 80%;
+    max-width: 1000px;
+    gap: 25px; 
+    border-radius: 15px;
+    margin: 0 auto; 
+    margin-top: 3%;
+    display: flex; 
+    justify-content: center; 
+}
+
+.service {
+    width: calc(33.33% - 10px);
+    /* Ajuste para 3 columnas, con espacio entre ellas */
+    min-height: 150px;
+    /* Altura mínima */
+    border: 3px solid #ec407a;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFEBEE;
+    /* Fondo rosa claro */
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    /* Bordes redondeados */
+    transition: transform 0.3s ease;
+    /* Efecto de transformación */
+    margin-bottom: 70px;
+}
+
+.service:hover {
+    transform: translateY(-5px);
+    /* Efecto de elevación al pasar el mouse */
+}
+
+.date {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ec407a;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    text-align: center; 
+    background-color: #fff; 
+    color: #ec407a; 
+}
+
+
+.combo {
+    color: #ec407a; 
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ec407a; 
+    border-radius: 8px; 
+    font-size: 18px; 
+    margin-bottom: 15px; 
+    text-align: center; 
+    background-color: #f9f9f9; 
+    font-family: Arial, sans-serif; 
+}
+
+.combo option {
+    background-color: #FFEBEE;
+    color: #ec407a;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #ec407a;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .back-button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    background: #ec407a;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .back-button:hover {
+    background-color: #d81b60;
+  }
+  
+  .back-button i {
+    margin-right: 10px; /* Espacio entre el ícono y el texto del botón */
+  }
+  
+  .back-button:focus {
+    outline: none; /* Quita el contorno que aparece al hacer clic en el botón */
+  }
+
+
+  .btn {
+    display: inline-block;
+    padding: 15px 30px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #e91e63;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; /* Ajuste de transición */
+  }
+  
+  .btn:hover {
+    background-color: #d81b60; /* Color más oscuro al pasar el cursor */
+    color: #fff; /* Ajuste de color del texto al pasar el cursor */
+  }
+  
+  .btn i {
+    margin-right: 10px; /* Espacio entre el icono y el texto */
+  }
+  
+  .btn:hover {
+    background-color: #d81b60; /* Color más oscuro al pasar el cursor */
+    color: #fff; /* Ajuste de color del texto al pasar el cursor */
+    transform: scale(1.1); /* Escala del botón al pasar el cursor */
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Ajuste de transición */
+  }

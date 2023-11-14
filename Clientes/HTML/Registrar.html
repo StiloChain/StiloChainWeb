@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="../CSS/Registrar.css">
+  <title>Registro Stilo Chain</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1><i class="fas fa-cut"></i> Registro Stilo Chain WEB</h1>
+    <div>
+      <!-- <div class="form-group">
+        <label>Tipo de documento</label>
+        <select name="" id="">
+          <option value="">Seleccionar...</option>
+          <option value="">Cedula de ciudadanía</option>
+          <option value="">Tarjeta de identidad</option>
+        </select>
+      </div> -->
+      <div class="form-group">
+        <label for="documento"><i class="fas fa-id-card"></i>Documento:</label>
+        <input type="number" id="documento" name="documento" required>
+      </div>
+      <div class="form-group">
+        <label for="nombre"><i class="fas fa-user"></i>Nombre/s:</label>
+        <input type="text" id="nombre" name="nombre" required>
+      </div>
+      <div class="form-group">
+        <label for="apellido"><i class="fas fa-user"></i>Apellido/s:</label>
+        <input type="text" id="apellido" name="apellido" required>
+      </div>
+      <div class="form-group">
+        <label for="telefono"><i class="fas fa-phone"></i>Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" required>
+      </div>
+      <div class="form-group">
+        <label for="correo"><i class="fas fa-envelope"></i>Correo:</label>
+        <input type="email" id="correo" name="correo" required>
+      </div>
+      <div class="form-group">
+        <label for="contrasena"><i class="fas fa-lock"></i>Contraseña:</label>
+        <input type="password" id="contraseña1" name="contraseña1" required>
+        <i class="fa-solid fa-eye" id="eye1"></i>
+        <i class="fa-solid fa-eye-slash" id="eye2"></i>
+      </div>
+      <div class="form-group">
+        <label for="contrasena2"><i class="fas fa-lock"></i>Confirmar contraseña:</label>
+        <input type="password" id="contraseña2" name="contraseña2" required>
+      </div>
+      
+      <div class="form-group checkbox-group">
+        <input type="checkbox" id="terminos" name="terminos" required>
+        <label for="terminos" class="terminos">Acepto los términos y condiciones</label>
+      </div>
+      
+      <div class="form-group checkbox-group">
+        <input type="checkbox" id="privacidad" name="privacidad">
+        <label for="privacidad" class="terminos">Acepto la política de privacidad</label>
+      </div>
+      
+
+      <button id="btnGuardar"> Enviar</button>
+
+      
+      <a href="../../index.html"> <button id="btnBack" class="back-button">
+          <i class="fas fa-arrow-left"></i>Regresar
+        </button></a>
+    </div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://kit.fontawesome.com/8d83ab9db3.js" crossorigin="anonymous"></script>
+<script src="../JS/Usuario.js"></script>
+
+<script>
+      document.addEventListener('DOMContentLoaded', function() {
+      // Restaurar valores de campos de texto
+      if (localStorage.getItem('formValues')) {
+        const savedValues = JSON.parse(localStorage.getItem('formValues'));
+        for (const key in savedValues) {
+          const element = document.getElementById(key);
+          if (element) {
+            element.value = savedValues[key];
+          }
+        }
+      }
+
+      // Restaurar estado de checkboxes
+      // const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+      // checkboxes.forEach(function(checkbox) {
+      //   const checkboxId = checkbox.id;
+      //   const storedValue = localStorage.getItem(checkboxId);
+
+      //   if (storedValue !== null) {
+      //     checkbox.checked = storedValue === 'true';
+      //   }
+
+      //   // Escuchar eventos de cambio en los checkboxes
+      //   checkbox.addEventListener('change', function() {
+      //     localStorage.setItem(checkboxId, checkbox.checked);
+      //   });
+      // });
+
+      // Escuchar eventos de cambio en campos de texto
+      document.querySelectorAll('.form-group input').forEach(function(input) {
+        input.addEventListener('input', function() {
+          const formValues = {};
+          document.querySelectorAll('.form-group input').forEach(function(input) {
+            formValues[input.id] = input.value;
+          });
+          localStorage.setItem('formValues', JSON.stringify(formValues));
+        });
+      });
+
+      // Limpiar datos cuando se envía el formulario
+      document.getElementById('btnGuardar').addEventListener('click', function() {
+        localStorage.removeItem('formValues');
+
+        // Desenfocar los checkboxes
+        // checkboxes.forEach(function(checkbox) {
+        //   checkbox.blur();
+        // });
+      });
+    }); 
+</script>
+
+<script>
+
+const terminos = document.getElementById("terminos");
+
+terminos.addEventListener("change", function () {
+  if (terminos.checked) {
+    window.open('/Politicas/terminos.html');
+  }
+});
+
+const privacidad = document.getElementById("privacidad");
+
+privacidad.addEventListener("change", function () {
+  if (privacidad.checked) {
+    window.open('/Politicas/privacidad.html');
+  }
+});
+
+  // function redireccionar(privacidad) {
+  //   if (document.getElementById(privacidad).checked) {
+  //     window.location.href = '/Politicas/privacidad.html';
+  //   }
+  // }
+
+  // function redireccionar(opcion) {
+  //   if (document.getElementById(terminos).checked) {
+  //     window.location.href = '/Politicas/terminos.html';
+  //   }
+  // }
+</script>
+
+</html>

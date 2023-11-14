@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="../../Clientes/CSS/SesionUsuario.css" />
+  <title>Sesión Usuario</title>
+</head>
+
+<body>
+  <div class="container">
+    <div id="nombreCliente"></div>
+    <div class="buttons-container">
+      <a class="btn epa cliente" href="../../Clientes/HTML/actualizarUsuario.html" role="button"><i
+          class="fa-solid fa-pen-nib"></i> Actualizar mis datos</a>
+      <a class="btn epa empleado" href="../../Clientes/HTML/consultarReservas.html" role="button"><i
+          class="fa-regular fa-eye"></i>
+        Consultar mis reservas</a>
+      <a class="btn epa admin" href="../../Servicios/HTML/ListarZZZ.html" role="button"><i
+          class="fa-regular fa-calendar"></i>
+        Realizar una reserva</a>
+    </div>
+
+    <a href="../../Clientes/HTML/IniciarSesion.html" id="btnBackLink" target="_blank">
+      <button id="btnBack" class="btn epa admin" onclick="cerrarVentana()">
+        <i class="fas fa-arrow-left"></i>Regresar
+      </button>
+    </a>
+  </div>
+</body>
+<script>
+  function cerrarVentana() {
+    setTimeout(function () {
+      window.open('about:blank', '_self').close();
+    }, 2);
+  }
+
+  const docClie = localStorage.getItem("documentocliente");
+  fetch("http://localhost:8084/cliente/" + docClie)
+    .then((res) => res.json())
+    .then((res) => {
+      const nomCli = res.nomCli;
+      const apeCli = res.apeCli;
+      const data = `
+      <h1 class="bounce">
+        Bienvenido
+        ${nomCli} ${apeCli}
+      </h1>
+    `;
+      document.getElementById("nombreCliente").innerHTML = data;
+    })
+    .catch((error) => {
+      console.error("Error al obtener el nombre del cliente:", error);
+    });
+</script>
+
+</html>

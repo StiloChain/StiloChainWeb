@@ -1,0 +1,123 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(135deg, #fce4ec, #f3e5f5);
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+  color: #ec407a;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  color: #ec407a;
+  margin-bottom: 5px;
+}
+
+.form-group i {
+  margin-right: 10px;
+  color: #ec407a;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  padding: 15px 0;
+  border: none;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #e91e63;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #d81b60;
+  transform: scale(1.05);
+}
+
+
+
+.back-button i {
+  margin-right: 10px;
+  /* Espacio entre el ícono y el texto del botón */
+}
+
+.form-group {
+  position: relative;
+}
+
+.fa-eye {
+  position: absolute;
+  bottom: 10.5px;
+  right: 3px;
+  cursor: pointer;
+}
+
+#eye {
+  display: none;
+}
+
+.fa-eye-slash {
+  position: absolute;
+  bottom: 10.5px;
+  right: 3px;
+  cursor: pointer;
+}
+
+#eye2 {
+  display: none;
+}
+.checkbox-group {
+  display: flex;
+  margin: 10px 0;
+}
+
+.checkbox-group label {
+  margin-bottom: 0;
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin: 0;
+  width: auto;
+  margin-right: 10px;
+}
+
+.checkbox-group input[type="checkbox"]+label {
+  color: #ec407a;
+}
+
+.message-container label {
+  white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+}

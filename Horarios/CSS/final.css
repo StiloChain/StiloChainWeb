@@ -1,0 +1,75 @@
+body {
+    font-family: 'Arial', sans-serif;
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #fce4ec, #f3e5f5);
+    color: #ec407a;
+}
+
+.mensaje {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.datos {
+    text-align: center;
+}
+
+.container {
+    text-align: center;
+}
+
+.bounce {
+    animation: bounceText 10s infinite alternate;
+}
+
+@keyframes bounceText {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #e91e63;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #d81b60;
+    color: #fff;
+}
+
+.btn i {
+    margin-right: 10px;
+}
+
+.btn:hover {
+    background-color: #d81b60;
+    color: #fff;
+    transform: scale(1.1);
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}

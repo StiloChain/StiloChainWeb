@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registrar Empleado</title>
+  <link rel="stylesheet" href="../CSS/create.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<style>
+  div {
+    margin-bottom: 15px;
+  }
+
+  label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+
+  .imagen_preview {
+    max-width: 100%;
+    max-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Ajusta según tus necesidades */
+  }
+
+  .miSelect {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+
+  .miSelect option[value="0"] {
+    font-style: italic;
+  }
+
+  .password-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+  }
+
+  .password-container input[type="password"] {
+    flex: 1;
+    padding-right: 30px;
+    border: 1px solid #ccc;
+  }
+
+  .show-password-button {
+    position: absolute;
+    top: 50%;
+    right: 9px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+</style>
+
+<body>
+  <div class="container">
+    <div class="form">
+
+      <h1>Agregar Empleado</h1>
+
+      <div class="form-group">
+        <label for="nombre"><i class="fas fa-id-card"></i> Documento</label>
+        <input type="number" placeholder="" id="documento" required>
+      </div>
+
+      <div class="form-group">
+        <label for="nombre"><i class="fas fa-user"></i> Nombre/s:</label>
+        <input type="text" placeholder="" id="nombres" required>
+      </div>
+
+      <div class="form-group">
+        <label for="nombre"><i class="fas fa-user"></i> Apellido/s:</label>
+        <input type="text" placeholder="" id="apellidos" required>
+      </div>
+
+      <div class="form-group">
+        <label for="nombre"><i class="fas fa-phone"></i> Teléfono</label>
+        <input type="number" placeholder="" id="telefono" required>
+      </div>
+
+      <div class="form-group">
+        <label for="nombre"><i class="fas fa-envelope"></i> Correo</label>
+        <input type="text" placeholder="" id="correo" required>
+      </div>
+
+      <div class="form-group">
+        <label for="nombre"><i class="fas fa-lock"></i> Contraseña</label>
+        <div class="password-container">
+          <input type="password" placeholder="" id="contraseña" required>
+          <span class="show-password-button" id="showPasswordButton" onclick="togglePasswordVisibility()"><i
+              class="fas fa-eye"></i></span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="imagen"><i class="far fa-image"></i> Imagen (.png, .jpg, .jpeg):</label>
+        <input type="file" id="imagen" name="imagen" accept=".png, .jpg, .jpeg" required />
+      </div>
+
+      <div id="imagen-container">
+        <img id="imagen-preview" src="#" alt="Vista previa de la imagen" class="imagen_preview" style="display:none;" />
+      </div>
+
+      <div>
+        <label><i class="fa-regular fa-address-book"></i> Rol</label>
+        <select class="miSelect" name="" id="rol" onchange="validarOcupacion()">
+          <option value="0" selected>Seleccionar...</option>
+          <option value="1">Admin</option>
+          <option value="2">Empleado</option>
+        </select>
+      </div>
+
+      <div>
+        <label><i class="fas fa-briefcase"></i> Servicio</label>
+        <select class="miSelect" name="" id="ocupaciones">
+          <option value="0" selected>Seleccionar...</option>
+        </select>
+      </div>
+
+    </div>
+    <button id="btnGuardar"><i class="far fa-save"></i>Guardar</button>
+    <a href="../../Empleados/HTML/Listar.html">
+      <button id="btnregresar">
+        <i class="fas fa-arrow-left"></i>Regresar
+      </button>
+    </a>
+  </div>
+
+  </div>
+</body>
+<script>
+
+  document.getElementById('imagen').addEventListener('input', function () {
+    var input = this;
+    var preview = document.getElementById('imagen-preview');
+
+    var file = input.files[0];
+
+    if (file) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        preview.style.display = 'block';
+        preview.src = e.target.result;
+      };
+
+      reader.readAsDataURL(file);
+    } else {
+      preview.style.display = 'none';
+    }
+  });
+
+
+  function togglePasswordVisibility() {
+    var passwordField = document.getElementById("contraseña");
+    var showPasswordButton = document.getElementById("showPasswordButton");
+    if (passwordField.type === "password") {
+      passwordField.type = "text";
+      showPasswordButton.innerHTML = '<i class="fas fa-eye-slash"></i>';
+    } else {
+      passwordField.type = "password";
+      showPasswordButton.innerHTML = '<i class="fas fa-eye"></i>';
+    }
+  }
+</script>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"
+  integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/8d83ab9db3.js" crossorigin="anonymous"></script>
+<script src="../../Servicios/JS/Listar.js"></script>
+<script src="../JS/Registrar.js"></script>
+
+</html>

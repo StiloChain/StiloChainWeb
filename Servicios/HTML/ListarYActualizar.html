@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listar y Actualizar - Servicio</title>
+  <!-- ======= Styles ====== -->
+  <link rel="stylesheet" href="../CSS/index.css">
+</head>
+
+<style>
+  .currentPage {
+    color: #d81b60;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 75%;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 17px;
+  }
+
+
+  .pagination {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .ima {
+    width: 200px;
+    /* Ancho de la imagen */
+    height: 150px;
+    /* Alto de la imagen */
+  }
+
+  .pagination button {
+    background-color: #ec407a;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    max-width: 200px;
+    margin: 2px;
+  }
+
+  .pagination button:hover {
+    background-color: #d81b60;
+  }
+
+  #table {
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 100%;
+  }
+
+
+  #table th,
+  #table td {
+    padding: 10px;
+    text-align: center;
+  }
+
+  #table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  #table tbody tr:hover {
+    background-color: #d81b60;
+    color: white;
+  }
+
+  .titulo {
+    font-size: 20px;
+  }
+</style>
+
+<body>
+  <!-- =============== Navigation ================ -->
+  <div class="container">
+    <div class="navigation">
+      <ul>
+        <li>
+          <a href="">
+            <span class="icon">
+              <i class="fa-solid fa-scissors"></i>
+            </span>
+            <span class="title">Stilo Chain</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="../../Administrador/HTML/Inicio.html">
+            <span class="icon">
+              <i class="fa-solid fa-house"></i>
+            </span>
+            <span class="title">Inicio</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="ListarYActualizar.html">
+            <span class="icon">
+              <i class="fa-solid fa-users"></i>
+            </span>
+            <span class="title">Servicios</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="../../Empleados/HTML/Listar.html">
+            <span class="icon">
+              <i class="fa-solid fa-chess-queen"></i>
+            </span>
+            <span class="title">Empleados</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="../../Administrador/HTML/IniciarSesion.html" target="_blank">
+            <span class="icon">
+              <i class="fa-solid fa-right-to-bracket"></i>
+            </span>
+            <span class="title" onclick="cerrarVentana()">Cerrar sesión</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- ========================= Main ==================== -->
+    <div class="main">
+      <div class="topbar">
+        <div class="toggle">
+          <ion-icon name="menu-outline"></ion-icon>
+        </div>
+      </div>
+
+      <!-- ================ Order Details List ================= -->
+      <div class="details">
+        <div class="recentOrders">
+          <div class="cardHeader">
+            <h2>Servicios</h2>
+            <a href="Registrar.html" class="btn">Nuevo</a>
+          </div>
+
+          <table id="table">
+            <thead>
+              <tr>
+                <td class="titulo">Nombre</td>
+                <td class="titulo">Precio</td>
+                <td class="titulo">Duración</td>
+              </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+          <div id="pagination" class="pagination">
+            <button id="nextPage"><i class="fa-solid fa-forward"> Siguiente</i></button>
+            <span id="currentPage" class="currentPage">1</span>
+            <button id="prevPage"><i class="fa-solid fa-backward"> Anterior</i></button>
+          </div>
+        </div>
+
+
+        <!-- ================= New Customers ================ -->
+        <div class="recentCustomers">
+          <h2>Actualizar servicio</h2>
+          <div class="cardHeader">
+          </div>
+
+          <div class="form">
+            <div class="form-group">
+              <label for="nombre"><i class="fa-solid fa-hashtag"></i> Id</label>
+              <input type="text" id="id" name="nombre" placeholder="Id" required readonly />
+            </div>
+            <div class="form-group">
+              <label for="nombre"><i class="fas fa-signature"></i> Nombre del servicio</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Nombre del servicio" required />
+            </div>
+            <div class="form-group">
+              <label for="precio"><i class="fas fa-dollar-sign"></i> Precio</label>
+              <input type="number" id="precio" name="precio" placeholder="Precio" required />
+            </div>
+            <div class="form-group">
+              <label for="duracion"><i class="far fa-clock"></i> Duración (en minutos):</label>
+              <input type="number" id="duracion" name="duracion" placeholder="Duración" required />
+            </div>
+            <div class="form-group">
+              <label for="imagen"><i class="far fa-image"></i> Imagen (.png, .jpg, .jpeg):</label>
+              <input type="file" id="nuevaImagen" name="imagen" accept=".png, .jpg, .jpeg" required />
+            </div>
+            <img id="imagen" src="" class="ima" alt="Imagen del servicio">
+            <button id="btnActualizar">Actualizar</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========== Scripts =========  -->
+
+    <!-- ====== ionicons ======= -->
+    <script>
+      function cerrarVentana() {
+        setTimeout(function () {
+          window.open('about:blank', '_self').close();
+        }, 2);
+      }
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script src="https://kit.fontawesome.com/8d83ab9db3.js" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+
+    <script src="../../Administrador/JS/Navigation.js"></script>
+    <script src="../../Servicios/JS/Servicios.js"></script>
+
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+
+</body>
+
+</html>

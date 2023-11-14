@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iniciar Sesión (Admin)</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../CSS/IniciarSesion.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+
+  <body>
+    <div class="login-container">
+      <h2 class="blue-text center">
+        <i class="fas fa-user-shield"></i> Iniciar Sesión como Administrador
+      </h2>
+
+      <div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <label for="password" class="blue-text"
+            >Contraseña de Administrador:</label
+          >
+          <input
+            type="password"
+            id="password"
+            placeholder="Ingrese la contraseña"
+            required
+          />
+        </div>
+
+
+        <button id="btnLogin">Iniciar Sesión</button>
+        <a href="../../Index.html">
+          <button id="btnBack" class="back-button">
+            <i class="fas fa-arrow-left"></i> Regresar
+          </button></a
+        >
+      </div>
+    </div>
+    <script>
+      const btn = document.getElementById("btnLogin");
+
+      btn.addEventListener("click", function () {
+        const password = document.getElementById("password").value;
+
+        // Realizar una solicitud al servidor para obtener los datos
+        fetch("http://localhost:8084/empleado")
+          .then((res) => res.json())
+          .then((data) => {
+            validarContraseña(password, data);
+          })
+          .catch((error) =>
+            console.error("Error al obtener los datos: ", error)
+          );
+      });
+
+      function validarContraseña(password, data) {
+        let contraseñaCorrecta = false;
+        // Verificar la contraseña para todos los usuarios con rol 1
+        for (const user of data) {
+          if (user.id_rol === 1 && password === user.conemp) {
+            contraseñaCorrecta = true;
+            break; // Salir del bucle si se encuentra una contraseña correcta
+          }
+        }
+
+        if (contraseñaCorrecta) {
+          window.open("../../Administrador/HTML/Inicio.html", "_blank");
+          setTimeout(function () {
+                window.open('about:blank', '_self').close();
+              }, 2);
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "ERROR",
+            text: "Contraseña incorrecta!",
+          });
+        }
+      }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+  </body>
+</html>
