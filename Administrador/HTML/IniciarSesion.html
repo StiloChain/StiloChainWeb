@@ -48,7 +48,7 @@
         const password = document.getElementById("password").value;
 
         // Realizar una solicitud al servidor para obtener los datos
-        fetch("http://localhost:8084/empleado")
+        fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/empleado")
           .then((res) => res.json())
           .then((data) => {
             validarContraseña(password, data);
