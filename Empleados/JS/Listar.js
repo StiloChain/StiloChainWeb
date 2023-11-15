@@ -14,7 +14,7 @@ var contraseña = document.getElementById("contraseña");
 var rol = document.getElementById("rol");
 var ocupaciones = document.getElementById("ocupaciones");
 
-fetch("http://localhost:8084/empleado")
+fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/empleado")
   .then((res) => res.json())
   .then((res) => {
     const allRecords = res;
