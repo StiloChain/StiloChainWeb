@@ -10,7 +10,7 @@ updateButton.addEventListener("click", function () {
   var selectElementOcupacion = document.getElementById("ocupaciones");
 
   function enviarCorreo(emailRequest) {
-    fetch("http://localhost:8084/send-email", {
+    fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/send-email", {
       method: "POST",
       body: JSON.stringify(emailRequest),
       headers: {
