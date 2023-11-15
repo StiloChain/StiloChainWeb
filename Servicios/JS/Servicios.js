@@ -194,7 +194,7 @@ const update = () => {
 
     deletePreviousHours(id);
 
-    fetch("http://localhost:8084/servicio/" + id)
+    fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/servicio/" + id)
       .then((res) => res.json())
       .then((servicioExistente) => {
         if (nombre === servicioExistente.nombre) {
@@ -222,7 +222,7 @@ const update = () => {
             },
           });
         } else {
-          fetch("http://localhost:8084/servicio/nombre/" + nombre.trim())
+          fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/servicio/nombre/" + nombre.trim())
             .then((res) => res.json())
             .then((existeNombre) => {
               if (existeNombre > 0) {
@@ -306,7 +306,7 @@ const saveHours = (id) => {
       orden: order,
     };
 
-    fetch("http://localhost:8084/hora/guardar", {
+    fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/hora/guardar", {
       method: "POST",
       body: JSON.stringify(horaData),
       headers: {
@@ -369,7 +369,7 @@ const guardarImagen = (idServicio) => {
 };
 
 const subirImagen = (idServicio, base64Data) => {
-  fetch(`http://localhost:8084/servicio/imagen/`, {
+  fetch(`http://localhost:8084/stilochain-0.0.1-SNAPSHOT/servicio/imagen/`, {
     method: "PUT",
     body: JSON.stringify({
       id: idServicio,
