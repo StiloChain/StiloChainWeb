@@ -101,7 +101,7 @@ const guardarServicio = () => {
 
 
 
-    return fetch('http://localhost:8084/servicio/cita-names')
+    return fetch('http://localhost:8084/stilochain-0.0.1-SNAPSHOT/servicio/cita-names')
         .then(res => res.json())
         .then(res => {
             const nombreExistente = res.find(nombre => nombre.toLowerCase() === nuevoNombre.toLowerCase().trim());
@@ -120,7 +120,7 @@ const guardarServicio = () => {
                 duracion: nuevaDuracion.trim(),
             };
 
-            return fetch("http://localhost:8084/servicio/guardar", {
+            return fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/servicio/guardar", {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json"
@@ -191,7 +191,7 @@ const guardarHorasEnIntervalo = (idServicio, duracion) => {
 };
 
 const guardarHora = (id, horaFormateada) => {
-    return fetch("http://localhost:8084/hora/guardar", {
+    return fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/hora/guardar", {
         method: "POST",
         body: JSON.stringify({
             "idservi": id,
@@ -249,7 +249,7 @@ const guardarImagen = async (idServicio) => {
         try {
             const base64Data = await redimensionarImagen(file, 400, 400);
 
-            const response = await fetch(`http://localhost:8084/servicio/imagen/`, {
+            const response = await fetch(`http://localhost:8084/stilochain-0.0.1-SNAPSHOT/servicio/imagen/`, {
                 method: "PUT",
                 body: JSON.stringify({
                     "id": idServicio,
