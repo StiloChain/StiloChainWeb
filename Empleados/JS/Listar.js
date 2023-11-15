@@ -87,7 +87,7 @@ fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/empleado")
         var primeraCelda = fila.querySelector("td:first-child");
         var valorPrimeraCelda = primeraCelda.textContent;
     
-        fetch("http://localhost:8084/empleado/" + valorPrimeraCelda)
+        fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/empleado/" + valorPrimeraCelda)
           .then((res) => res.json())
           .then((res) => {
             documento.value = res["docemp"];
@@ -99,7 +99,7 @@ fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/empleado")
     
             const imgElement = $("#imagen1");
             const docemp = res["docemp"]; // Reemplaza con el campo correcto del documento del empleado
-            const imageUrl = "http://localhost:8084/empleado/obtener/" + docemp;
+            const imageUrl = "http://localhost:8084/stilochain-0.0.1-SNAPSHOT/empleado/obtener/" + docemp;
             imgElement.attr("src", imageUrl);
     
             $("#convertirBase64").off("click").on("click", function () {
@@ -122,7 +122,7 @@ fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/empleado")
             }
     
             var servicio = res["ocuemp"];
-            fetch("http://localhost:8084/servicio")
+            fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/servicio")
               .then((res) => res.json())
               .then((servicios) => {
                 ocupaciones.innerHTML = '';
@@ -180,7 +180,7 @@ fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/empleado")
           })
           .then((result) => {
             if (result.isConfirmed) {
-              fetch("http://localhost:8084/empleado/bloquear/" + valorPrimeraCelda, {
+              fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/empleado/bloquear/" + valorPrimeraCelda, {
                 method: "PUT",
                 body: JSON.stringify({
                   docemp: valorPrimeraCelda,
