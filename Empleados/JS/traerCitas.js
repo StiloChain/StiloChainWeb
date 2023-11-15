@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Obtener datos del empleado
-  fetch("http://localhost:8084/empleado/" + documentoEmpleado)
+  fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/empleado/" + documentoEmpleado)
     .then(response => response.json())
     .then(empleadoData => {
       // Verifica si se encontró el empleado
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
       };
 
       // Obtener datos de las citas
-      fetch("http://localhost:8084/cita")
+      fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/cita")
         .then((res) => res.json())
         .then((res) => {
           citasData = res.filter(cita => cita.docEmpCita === documentoEmpleado); // Filtrar citas para el empleado
