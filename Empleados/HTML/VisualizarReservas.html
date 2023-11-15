@@ -81,7 +81,7 @@
     }
 
     const docEmpl = localStorage.getItem("documentoEmpleado");
-    fetch("http://localhost:8084/empleado/" + docEmpl)
+    fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/empleado/" + docEmpl)
       .then((res) => res.json())
       .then((res) => {
         const nomemp = res.nomemp;
