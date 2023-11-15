@@ -167,12 +167,12 @@ updateButton.addEventListener("click", function () {
     id_rol: rol,
   };
 
-  fetch("http://localhost:8084/empleado/empleado/coremp/" + documento)
+  fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/empleado/empleado/coremp/" + documento)
     .then((res) => res.json())
     .then((empleadoData) => {
       const correoEmpleado = empleadoData[0]
       if (correo !== correoEmpleado) {
-        fetch("http://localhost:8084/empleado/correo/" + correo)
+        fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/empleado/correo/" + correo)
           .then((res) => res.json())
           .then((existeCorreo) => {
             if (existeCorreo) {
@@ -182,7 +182,7 @@ updateButton.addEventListener("click", function () {
                 text: 'Correo ya existente!',
               });
             } else {
-              fetch("http://localhost:8084/empleado/" + documento, {
+              fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/empleado/" + documento, {
                 method: "PUT",
                 body: JSON.stringify(datosActualizados),
                 headers: {
@@ -234,7 +234,7 @@ updateButton.addEventListener("click", function () {
           id_servicio: idServicio,
           id_rol: rol,
         };
-        fetch("http://localhost:8084/empleado/" + documento, {
+        fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/empleado/" + documento, {
           method: "PUT",
           body: JSON.stringify(datosActualizados2),
           headers: {
@@ -328,7 +328,7 @@ function convertirImagenABase64() {
 document.getElementById('imagen').addEventListener('change', convertirImagenABase64);
 
 function actualizarImagen(docemp, nuevaImagen) {
-  fetch('http://localhost:8084/empleado/imagen', {
+  fetch('http://localhost:8084/stilochain-0.0.1-SNAPSHOT/empleado/imagen', {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
