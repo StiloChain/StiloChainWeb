@@ -42,7 +42,7 @@ function enviarCorreo(emailRequest) {
 }
 
 function verificarExistenciaDocumento(documento) {
-  return fetch("http://localhost:8084/empleado/" + documento).then(function (
+  return fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/empleado/" + documento).then(function (
     response
   ) {
     if (!response.ok) {
@@ -53,7 +53,7 @@ function verificarExistenciaDocumento(documento) {
 }
 
 function verificarExistenciaCorreo(correo) {
-  return fetch("http://localhost:8084/empleado/correo/" + correo).then(
+  return fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/empleado/correo/" + correo).then(
     function (response) {
       if (!response.ok) {
         throw new Error("Error al verificar la existencia del correo");
@@ -64,7 +64,7 @@ function verificarExistenciaCorreo(correo) {
 }
 
 function guardarEmpleado(data) {
-  return fetch("http://localhost:8084/empleado/guardar", {
+  return fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/empleado/guardar", {
     method: "POST",
     body: JSON.stringify(data),
     headers: {
@@ -354,7 +354,7 @@ const guardarImagen = async (docemp) => {
     try {
       const base64Data = await redimensionarImagen(file, 400, 400);
 
-      const response = await fetch(`http://localhost:8084/empleado/imagen/`, {
+      const response = await fetch(`http://localhost:8084/stilochain-0.0.1-SNAPSHOT/empleado/imagen/`, {
         method: "PUT",
         body: JSON.stringify({
           docemp: docemp,
