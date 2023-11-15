@@ -4,7 +4,7 @@ const radioOcupado = document.getElementById('radio-ocupado');
 const documentoEmpleado = localStorage.getItem("documentoEmpleado");
 
 
-fetch("http://localhost:8084/empleado/" + documentoEmpleado)
+fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/empleado/" + documentoEmpleado)
     .then(response => response.json())
     .then(empleado => {
         if (empleado.estemp === 1) {
@@ -29,7 +29,7 @@ function actualizarEstado(nuevoEstado) {
   const documentoEmpleado = localStorage.getItem("documentoEmpleado", "documentoemple");
 
     
-    fetch("http://localhost:8084/empleado/" + documentoEmpleado)
+    fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/empleado/" + documentoEmpleado)
         .then(response => response.json())
         .then(empleado => {
             const data = {
@@ -46,7 +46,7 @@ function actualizarEstado(nuevoEstado) {
                 id_rol: empleado.id_rol,
             };
 
-            return fetch("http://localhost:8084/empleado/" + documentoEmpleado, {
+            return fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/empleado/" + documentoEmpleado, {
                 method: 'PUT',
                 headers: {
                     "Content-Type": "application/json"
