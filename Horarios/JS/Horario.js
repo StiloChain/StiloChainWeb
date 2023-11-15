@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
           `;
 
           // Obtener y mostrar la foto del empleado
-          fetch("http://localhost:8084/empleado/obtener/" + element.docemp)
+          fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/empleado/obtener/" + element.docemp)
             .then((res) => {
               if (!res.ok) {
                 // Si la respuesta no es exitosa, asigna la URL de la imagen predeterminada
@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const empleado = input.closest(".service");
             const docEmp = empleado.querySelector("h1").id;
 
-            fetch(`http://localhost:8084/cita/${fechaSeleccionada}/${docEmp}`)
+            fetch(`http://localhost:8084/stilochain-0.0.1-SNAPSHOT/cita/${fechaSeleccionada}/${docEmp}`)
               .then((res) => res.json())
               .then((res) => {
                 res.forEach((hora) => {
@@ -175,7 +175,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const servicio = h2Id;
     const serviceElements = document.querySelectorAll(".service");
     serviceElements.forEach((service) => {
-      fetch("http://localhost:8084/hora/servi/" + servicio)
+      fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/hora/servi/" + servicio)
         .then((res) => res.json())
         .then((data) => {
           const selectHora = service.querySelector("select#hora");
@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function procesarReserva(docClie, docEmp, fecha, horaText) {
     // Hacer la primera solicitud para verificar la disponibilidad de la cita
-    fetch(`http://localhost:8084/cita/${fecha}/${horaText}/${docEmp}`)
+    fetch(`http://localhost:8084/stilochain-0.0.1-SNAPSHOT/cita/${fecha}/${horaText}/${docEmp}`)
       .then((res) => res.json())
       .then((res) => {
         if (res === 1) {
@@ -210,7 +210,7 @@ document.addEventListener("DOMContentLoaded", function () {
             docEmpCita: docEmp,
           };
 
-          fetch("http://localhost:8084/cita/guardar", {
+          fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/cita/guardar", {
             method: "POST",
             body: JSON.stringify(reservaData),
             headers: {
@@ -229,7 +229,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const docClie = localStorage.getItem("documentocliente");
 
                 // Obtener el correo del cliente
-                fetch(`http://localhost:8084/cliente/cliente/corcli/${docClie}`)
+                fetch(`http://localhost:8084/stilochain-0.0.1-SNAPSHOT/cliente/cliente/corcli/${docClie}`)
                   .then((res) => res.json())
                   .then((correoRes) => {
                     const correo = correoRes[0];
@@ -240,7 +240,7 @@ document.addEventListener("DOMContentLoaded", function () {
                       body: `Su cita se ha realizado con éxito. Recuerde que está agendada para el día ${fecha} y a la hora ${horaText}`,
                     };
 
-                    fetch("http://localhost:8084/send-email", {
+                    fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/send-email", {
                       method: "POST",
                       body: JSON.stringify(emailRequest),
                       headers: {
