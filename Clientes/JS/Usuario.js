@@ -152,7 +152,7 @@ function validarCampos() {
   }
 
 // Validar el documento
-fetch("http://localhost:8084/cliente/" + documento)
+fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/cliente/" + documento)
   .then(res => res.json())
   .then(res => {
     if (res !== null) {
@@ -163,7 +163,7 @@ fetch("http://localhost:8084/cliente/" + documento)
       });
     } else {
       // El documento no existe, puedes proceder a validar el correo
-      fetch("http://localhost:8084/cliente/correo/" + email)
+      fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/cliente/correo/" + email)
         .then(res => res.json())
         .then(correoExistente => {
           if (correoExistente && correoExistente >= 1) {
@@ -174,7 +174,7 @@ fetch("http://localhost:8084/cliente/" + documento)
             });
           } else {
             // El documento y el correo no existen, puedes proceder con el guardado
-            fetch("http://localhost:8084/cliente/guardar", {
+            fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/cliente/guardar", {
               method: "POST",
               body: JSON.stringify({
                 "docCli": documento,
@@ -215,7 +215,7 @@ fetch("http://localhost:8084/cliente/" + documento)
 }
 
 function enviarCorreo(emailRequest) {
-  fetch("http://localhost:8084/send-email", {
+  fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/send-email", {
     method: "POST",
     body: JSON.stringify(emailRequest),
     headers: {
