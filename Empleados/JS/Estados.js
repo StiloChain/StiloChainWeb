@@ -1,6 +1,6 @@
 const estados = [];
 
-fetch("http://localhost:8084/estado")
+fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/estado")
     .then(res => res.json())
     .then(res => {
         // Agrega los datos de la respuesta al arreglo 'array'
