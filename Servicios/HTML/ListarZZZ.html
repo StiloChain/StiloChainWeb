@@ -172,7 +172,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const serviciosContainer = document.getElementById('servicios-container');
 
-  fetch('http://localhost:8084/servicio')
+  fetch('http://localhost:8084/stilochain-0.0.1-SNAPSHOT/servicio')
     .then(response => response.json())
     .then(data => {
       data.forEach(servicio => {
