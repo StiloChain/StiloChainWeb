@@ -4,7 +4,7 @@ btn.addEventListener("click", function () {
     var Documento = document.getElementById("Documento").value;
     var password = document.getElementById("password").value;
 
-    fetch("http://localhost:8084/empleado/" + Documento)
+    fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/empleado/" + Documento)
         .then(res => res.json())
         .then(res => {
             if (res) {
