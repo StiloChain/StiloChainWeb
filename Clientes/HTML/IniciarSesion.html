@@ -53,7 +53,7 @@
         var documento = document.getElementById("documento").value;
         var password = document.getElementById("password").value;
 
-        fetch("http://localhost:8084/cliente/" + documento)
+        fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/cliente/" + documento)
           .then((res) => res.json())
           .then((res) => {
             if (res && res.conCli === password) {
