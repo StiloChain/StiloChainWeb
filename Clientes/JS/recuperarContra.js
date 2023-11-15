@@ -2,7 +2,7 @@ var documento = document.getElementById("documento");
 var correo = document.getElementById("email");
 
 function enviarCorreo(emailRequest) {
-  fetch("http://localhost:8084/send-email", {
+  fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/send-email", {
     method: "POST",
     body: JSON.stringify(emailRequest),
     headers: {
@@ -27,7 +27,7 @@ function recuperarContra() {
     const numeroDocumento = documento.value;
     const emailCliente = correo.value;
   
-    fetch("http://localhost:8084/cliente/" + numeroDocumento)
+    fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/cliente/" + numeroDocumento)
       .then(res => {
         if (!res.ok) {
           throw new Error('Error al obtener los datos del cliente');
