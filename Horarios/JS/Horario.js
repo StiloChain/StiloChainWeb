@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (datoRecibido) {
     fetch(
-      "http://localhost:8084/empleado/ocupacion/" +
+      "http://localhost:8084/stilochain-0.0.1-SNAPSHOT/empleado/ocupacion/" +
         decodeURIComponent(datoRecibido)
     )
       .then((res) => res.json())
