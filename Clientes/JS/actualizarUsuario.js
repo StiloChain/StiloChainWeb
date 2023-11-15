@@ -147,12 +147,12 @@ function actualizarCampos(id) {
         conCli: contrasena,
     };
 
-    fetch("http://localhost:8084/cliente/cliente/corcli/" + documento)
+    fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/cliente/cliente/corcli/" + documento)
         .then((res) => res.json())
         .then((clienteData) => {
             const correoCliente = clienteData[0]
             if (correo.trim() !== correoCliente) {
-                fetch("http://localhost:8084/cliente/correo/" + correo)
+                fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/cliente/correo/" + correo)
                     .then((res) => res.json())
                     .then((existeCorreo) => {
                         if (existeCorreo) {
@@ -162,7 +162,7 @@ function actualizarCampos(id) {
                                 text: 'Correo ya existente!',
                             });
                         } else {
-                            fetch("http://localhost:8084/cliente/" + id, {
+                            fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/cliente/" + id, {
                                 method: "PUT",
                                 body: JSON.stringify(datosActualizados),
                                 headers: {
@@ -207,7 +207,7 @@ function actualizarCampos(id) {
                     corCli: correoCliente,
                     conCli: contrasena,
                 };
-                fetch("http://localhost:8084/cliente/" + id, {
+                fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/cliente/" + id, {
                     method: "PUT",
                     body: JSON.stringify(datosActualizados2),
                     headers: {
