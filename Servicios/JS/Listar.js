@@ -1,6 +1,6 @@
 const servicios = [];
 
-fetch("http://localhost:8084/servicio")
+fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/servicio")
     .then(res => res.json())
     .then(res => {
         servicios.push(...res);
