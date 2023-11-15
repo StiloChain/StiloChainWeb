@@ -11,7 +11,7 @@ $(document).ready(function () {
 
   const read = (page) => {
     $.ajax({
-      url: "http://localhost:8084/servicio",
+      url: "http://localhost:8084/stilochain-0.0.1-SNAPSHOT/servicio",
       type: "GET",
       dataType: "json",
       success: function (res) {
@@ -82,7 +82,7 @@ const completarCampos = function () {
   const id = btnFields.attr("id_servicio");
 
   $.ajax({
-    url: "http://localhost:8084/servicio/" + id,
+    url: "http://localhost:8084/stilochain-0.0.1-SNAPSHOT/servicio/" + id,
     type: "GET",
     dataType: "json",
     success: function (res) {
@@ -92,7 +92,7 @@ const completarCampos = function () {
       $("#duracion").val(res.duracion);
 
       const imgElement = $("#imagen");
-      const imageUrl = "http://localhost:8084/servicio/obtener/" + id;
+      const imageUrl = "http://localhost:8084/stilochain-0.0.1-SNAPSHOT/servicio/obtener/" + id;
       imgElement.attr("src", imageUrl);
 
       $("#convertirBase64").off("click").on("click", function () {
@@ -199,7 +199,7 @@ const update = () => {
       .then((servicioExistente) => {
         if (nombre === servicioExistente.nombre) {
           $.ajax({
-            url: "http://localhost:8084/servicio/" + id,
+            url: "http://localhost:8084/stilochain-0.0.1-SNAPSHOT/servicio/" + id,
             contentType: "application/json",
             type: "PUT",
             data: JSON.stringify(datosServicio),
@@ -233,7 +233,7 @@ const update = () => {
                 });
               } else {
                 $.ajax({
-                  url: "http://localhost:8084/servicio/" + id,
+                  url: "http://localhost:8084/stilochain-0.0.1-SNAPSHOT/servicio/" + id,
                   contentType: "application/json",
                   type: "PUT",
                   data: JSON.stringify(datosServicio),
@@ -266,7 +266,7 @@ const update = () => {
 
 const deletePreviousHours = (id) => {
   $.ajax({
-    url: "http://localhost:8084/hora/delete/" + id,
+    url: "http://localhost:8084/stilochain-0.0.1-SNAPSHOT/hora/delete/" + id,
     type: "DELETE",
     dataType: "json",
     success: () => {
@@ -337,7 +337,7 @@ const borrar = function () {
 
   if (confirm("¿Estás seguro de borrar este servicio?")) {
     $.ajax({
-      url: "http://localhost:8084/servicio/" + id,
+      url: "http://localhost:8084/stilochain-0.0.1-SNAPSHOT/servicio/" + id,
       type: "DELETE",
       dataType: "json",
       success: (res) => {
