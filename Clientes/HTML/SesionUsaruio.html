@@ -38,7 +38,7 @@
   }
 
   const docClie = localStorage.getItem("documentocliente");
-  fetch("http://localhost:8084/cliente/" + docClie)
+  fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/cliente/" + docClie)
     .then((res) => res.json())
     .then((res) => {
       const nomCli = res.nomCli;
