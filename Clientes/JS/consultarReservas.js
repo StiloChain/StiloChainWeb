@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   });
-  fetch("http://localhost:8084/cliente/" + docCliente)
+  fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/cliente/" + docCliente)
     .then(response => response.json())
     .then(clienteData => {
       if (!clienteData) {
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      fetch("http://localhost:8084/cita")
+      fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/cita")
         .then((res) => res.json())
         .then((res) => {
           citasData = res.filter(cita => cita.docClixCit === docCliente);
