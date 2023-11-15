@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Obtener datos de las citas
-    fetch("http://localhost:8084/cita")
+    fetch("http://localhost:8084/stilochain-0.0.1-SNAPSHOT/cita")
         .then((res) => res.json())
         .then((res) => {
             citasData = res; // No se filtra por empleado, se obtienen todas las citas
